@@ -161,11 +161,9 @@ ORDER BY SUM(total) DESC;
 
 -- 5 queries: discount per customer
 SELECT
-  p.description AS ,
   c.first_name || ' ' || c.last_name AS customer_name,
   SUM(o.discount) AS total_discount
 FROM orders AS o
-JOIN promotion AS p ON o.promotion_id = p.promotion_id
 JOIN customers AS c ON c.customer_id = o.customer_id
-GROUP BY 1,2
-ORDER BY 3 DESC
+GROUP BY 1
+ORDER BY 2 DESC
